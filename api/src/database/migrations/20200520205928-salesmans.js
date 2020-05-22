@@ -10,11 +10,11 @@ module.exports = {
         primaryKey: true,
       },
       name: {
-        type: Sequelize.TEXT,
+        type: Sequelize.STRING,
         allowNull: false,
       },
       cpf: {
-        type: Sequelize.TEXT,
+        type: Sequelize.STRING(12),
         allowNull: false,
       },
       created_at: {

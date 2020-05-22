@@ -1,17 +1,15 @@
 import Sequelize, { Model } from 'sequelize';
 
-class Cash extends Model {
+class SaleHasProduct extends Model {
   static init(sequelize) {
     super.init(
       {
-        method: Sequelize.STRING,
-        value: Sequelize.DOUBLE,
-        total: Sequelize.DOUBLE,
         id_sales: Sequelize.INTEGER,
+        id_products: Sequelize.INTEGER,
       },
       {
         sequelize,
-        tableName: 'cash'
+        tableName: 'sales_has_products'
       }
     );
     return this;
@@ -19,6 +17,7 @@ class Cash extends Model {
 
   static associate(models) {
     this.belongsTo(models.Sale, { foreignKey: 'id_sales', as: 'sale' });
+    this.belongsTo(models.Product, { foreignKey: 'id_products', as: 'product' });
   }
 }
-export default Cash;
+export default SaleHasProduct;

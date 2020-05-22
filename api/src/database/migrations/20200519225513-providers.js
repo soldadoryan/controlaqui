@@ -10,15 +10,15 @@ module.exports = {
         primaryKey: true,
       },
       name: {
-        type: Sequelize.TEXT,
+        type: Sequelize.STRING,
         allowNull: false,
       },
       cnpj: {
-        type: Sequelize.TEXT,
+        type: Sequelize.STRING(14),
         allowNull: false,
       },
       phone: {
-        type: Sequelize.TEXT,
+        type: Sequelize.STRING(18),
         allowNull: false,
       },
       address: {
