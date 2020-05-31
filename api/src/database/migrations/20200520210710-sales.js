@@ -2,28 +2,20 @@
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('products', {
+    return queryInterface.createTable('sales', {
       id: {
         type: Sequelize.INTEGER,
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
       },
-      description: {
-        type: Sequelize.TEXT,
-        allowNull: false,
-      },
-      unity_value: {
+      total: {
         type: Sequelize.DOUBLE,
         allowNull: false,
       },
-      quantity: {
+      id_salesmans: {
         type: Sequelize.INTEGER,
-        allowNull: false
-      },
-      id_providers: {
-        type: Sequelize.INTEGER,
-        references: { model: 'providers', key: 'id' },
+        references: { model: 'salesmans', key: 'id' },
         onUpdate: 'CASCADE',
         onDelete: 'SET NULL',
         allowNull: true,
@@ -40,6 +32,6 @@ module.exports = {
   },
 
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('products');
+    return queryInterface.dropTable('sales');
   }
 };
