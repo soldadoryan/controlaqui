@@ -7,7 +7,7 @@ class Product extends Model {
         description: Sequelize.STRING,
         unity_value: Sequelize.DOUBLE,
         quantity: Sequelize.INTEGER,
-        id_providers: Sequelize.INTEGER,
+        id_provider: Sequelize.INTEGER,
       },
       {
         sequelize,
@@ -18,7 +18,7 @@ class Product extends Model {
   }
 
   static associate(models) {
-    this.belongsTo(models.Provider, { foreignKey: 'id_providers', as: 'provider' });
+    this.belongsTo(models.Provider, { foreignKey: 'id_provider', as: 'provider' });
   }
 }
 export default Product;

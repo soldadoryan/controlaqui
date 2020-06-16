@@ -3,14 +3,14 @@
 module.exports = {
   up: (queryInterface, Sequelize) => {
     return queryInterface.createTable('sales_has_products', {
-      id_sales: {
+      id_sale: {
         type: Sequelize.INTEGER,
         references: { model: 'sales', key: 'id' },
         onUpdate: 'CASCADE',
         onDelete: 'SET NULL',
         allowNull: true,
       },
-      id_products: {
+      id_product: {
         type: Sequelize.INTEGER,
         references: { model: 'products', key: 'id' },
         onUpdate: 'CASCADE',

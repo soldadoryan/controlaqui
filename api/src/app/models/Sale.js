@@ -5,7 +5,7 @@ class Sale extends Model {
     super.init(
       {
         total: Sequelize.DOUBLE,
-        id_salesmans: Sequelize.INTEGER,
+        id_salesman: Sequelize.INTEGER,
       },
       {
         sequelize,
@@ -16,7 +16,7 @@ class Sale extends Model {
   }
 
   static associate(models) {
-    this.belongsTo(models.Salesman, { foreignKey: 'id_salesmans', as: 'salesman' });
+    this.belongsTo(models.Salesman, { foreignKey: 'id_salesman', as: 'salesman' });
   }
 }
 export default Sale;

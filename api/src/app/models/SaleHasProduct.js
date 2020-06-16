@@ -4,8 +4,8 @@ class SaleHasProduct extends Model {
   static init(sequelize) {
     super.init(
       {
-        id_sales: Sequelize.INTEGER,
-        id_products: Sequelize.INTEGER,
+        id_sale: Sequelize.INTEGER,
+        id_product: Sequelize.INTEGER,
       },
       {
         sequelize,
@@ -16,8 +16,8 @@ class SaleHasProduct extends Model {
   }
 
   static associate(models) {
-    this.belongsTo(models.Sale, { foreignKey: 'id_sales', as: 'sale' });
-    this.belongsTo(models.Product, { foreignKey: 'id_products', as: 'product' });
+    this.belongsTo(models.Sale, { foreignKey: 'id_sale', as: 'sale' });
+    this.belongsTo(models.Product, { foreignKey: 'id_product', as: 'product' });
   }
 }
 export default SaleHasProduct;

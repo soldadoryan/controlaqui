@@ -21,7 +21,7 @@ module.exports = {
         type: Sequelize.DOUBLE,
         allowNull: false
       },
-      id_sales: {
+      id_sale: {
         type: Sequelize.INTEGER,
         references: { model: 'sales', key: 'id' },
         onUpdate: 'CASCADE',

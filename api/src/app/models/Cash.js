@@ -7,7 +7,7 @@ class Cash extends Model {
         method: Sequelize.STRING,
         value: Sequelize.DOUBLE,
         total: Sequelize.DOUBLE,
-        id_sales: Sequelize.INTEGER,
+        id_sale: Sequelize.INTEGER,
       },
       {
         sequelize,
@@ -18,7 +18,7 @@ class Cash extends Model {
   }
 
   static associate(models) {
-    this.belongsTo(models.Sale, { foreignKey: 'id_sales', as: 'sale' });
+    this.belongsTo(models.Sale, { foreignKey: 'id_sale', as: 'sale' });
   }
 }
 export default Cash;
