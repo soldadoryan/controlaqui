@@ -4,8 +4,8 @@ import { Switch, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import Providers from './pages/Providers';
 import Products from './pages/Products';
-import Salesmans  from './pages/Salesmans';
-import Sales  from './pages/Sales';
+import Salesmans from './pages/Salesmans';
+import Sales from './pages/Sales';
 
 
 export default function Routes() {

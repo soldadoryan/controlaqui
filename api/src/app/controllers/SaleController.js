@@ -1,8 +1,9 @@
-import Sale from '../models/Salesman';
+import Sale from '../models/Sale';
+import Salesman from '../models/Salesman';
 
 class SaleController {
   async store(req, res) {
-    const { total, id_salesman} = req.body;
+    const { total, id_salesman } = req.body;
 
     const response = await Sale.create({
       total,
@@ -18,7 +19,13 @@ class SaleController {
   }
 
   async index(req, res) {
-    const response = await Sale.findAll();
+    const response = await Sale.findAll({
+      where: { id_salesman },
+      raw: true,
+      include: [
+        { model: Salesman, as: 'salesman' }
+      ]
+    });
 
     return res.status(200).json(response);
   }

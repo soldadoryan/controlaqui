@@ -4,12 +4,12 @@ import api from '../../services/api';
 import CHeader from '../../components/CHeader';
 import CTable from '../../components/CTable';
 
-import FormProducts from '../../components/Products/Form';
+import FormSales from '../../components/Sales/Form';
 
 import { Page } from './styles';
 import { Container, TitlePage, Painel } from '../../styles/scglobal';
 
-export default function Products() {
+export default function Sales() {
   const [sales, setSales] = useState([]);
 
   useEffect(() => {
@@ -25,20 +25,22 @@ export default function Products() {
   return (
     <Page>
       <CHeader />
-      <Container className="containerproduct">
+      <Container className="containersale">
 
         <TitlePage>Lista de Vendas</TitlePage>
 
-        <Painel className="painelproduct">
+        <Painel className="painelsale">
+
           <CTable
             titles={['#', 'Total', 'Vendedor']}
-            values={products}
             indexes={['id', 'total', 'salesman.name']}
             indexesSearch={['total', 'salesman.name']}
-            load={getProducts}
-            FormCustom={FormProducts}
+            values={sales}
+            load={getSales}
+            FormCustom={FormSales}
             actionDelete='/sales'
           />
+
         </Painel>
 
       </Container>

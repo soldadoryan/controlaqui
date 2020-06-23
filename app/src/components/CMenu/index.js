@@ -5,7 +5,8 @@ import api from '../../services/api';
 import { Menu, Button } from './styles';
 import {
   IoIosAirplane,
-  IoIosBasket
+  IoIosBasket,
+  IoIosPeople
 } from 'react-icons/io';
 
 export default function CMenu({ history }) {
@@ -21,6 +22,16 @@ export default function CMenu({ history }) {
         <Button to='/products'>
           <IoIosBasket />
           <span>Produtos</span>
+        </Button>
+
+        <Button to='/salesmans'>
+          <IoIosPeople />
+          <span>Vendedores</span>
+        </Button>
+
+        <Button to='/sales'>
+          <IoIosBasket />
+          <span>Vendas</span>
         </Button>
       </Menu >
     </>
