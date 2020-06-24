@@ -30,17 +30,15 @@ export default function Sales() {
         <TitlePage>Lista de Vendas</TitlePage>
 
         <Painel className="painelsale">
-
           <CTable
             titles={['#', 'Total', 'Vendedor']}
-            indexes={['id', 'total', 'salesman.name']}
-            indexesSearch={['total', 'salesman.name']}
             values={sales}
+            indexes={['id', 'total', 'salesman.name']}
+            indexesSearch={['salesman.name']}
             load={getSales}
             FormCustom={FormSales}
             actionDelete='/sales'
           />
-
         </Painel>
 
       </Container>

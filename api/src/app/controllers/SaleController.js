@@ -20,7 +20,6 @@ class SaleController {
 
   async index(req, res) {
     const response = await Sale.findAll({
-      where: { id_salesman },
       raw: true,
       include: [
         { model: Salesman, as: 'salesman' }
