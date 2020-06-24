@@ -6,6 +6,7 @@ import Providers from './pages/Providers';
 import Products from './pages/Products';
 import Salesmans from './pages/Salesmans';
 import Sales from './pages/Sales';
+import Cashs from './pages/Cashs';
 
 
 export default function Routes() {
@@ -16,6 +17,7 @@ export default function Routes() {
       <Route path="/products" exact component={Products} />
       <Route path="/salesmans" exact component={Salesmans} />
       <Route path="/sales" exact component={Sales} />
+      <Route path="/cashs" exact component={Cashs} />
     </Switch>
   );
 }

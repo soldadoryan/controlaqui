@@ -1,14 +1,29 @@
-import Cash from '../models/Salesman';
+import Cash from '../models/Cash';
 
 class CashController {
   async store(req, res) {
-    const { method, value, total, id_sales} = req.body;
+    const { method, value} = req.body;
+
+    console.log(method);
+
+    const transacaoAtual = await Cash.findAll({
+      order: [
+        ['id', 'DESC']
+      ]
+    });
+
+    var valorAtual = (transacaoAtual.length > 0) ? transacaoAtual[0].total : 0;
+
+    if(method === 'add') {
+      valorAtual = parseFloat(valorAtual) + parseFloat(value);
+    } else {
+      valorAtual = parseFloat(valorAtual) - parseFloat(value);
+    }
 
     const response = await Cash.create({
       method,
       value,
-      total,
-      id_sales
+      total: valorAtual,
     });
 
     return res.status(200).json({
@@ -23,6 +38,16 @@ class CashController {
     const response = await Cash.findAll();
 
     return res.status(200).json(response);
+  }
+
+  async show(req, res) {
+    const response = await Cash.findAll({
+      order: [
+        ['id', 'DESC']
+      ]
+    });
+
+    return res.status(200).json({ total: response[0].total });
   }
 
   async update(req, res) {

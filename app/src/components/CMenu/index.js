@@ -33,6 +33,11 @@ export default function CMenu({ history }) {
           <IoIosBasket />
           <span>Vendas</span>
         </Button>
+
+        <Button to='/cashs'>
+          <IoIosBasket />
+          <span>Controle de caixa</span>
+        </Button>
       </Menu >
     </>
   );

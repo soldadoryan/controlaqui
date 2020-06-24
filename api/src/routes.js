@@ -34,6 +34,7 @@ routes.get('/cashs', CashController.index);
 routes.post('/cashs', CashController.store);
 routes.put('/cashs/:id', CashController.update);
 routes.delete('/cashs/:id', CashController.destroy);
+routes.get('/cashs/total', CashController.show);
 
 
 
