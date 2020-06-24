@@ -1,13 +1,43 @@
 import Sale from '../models/Sale';
+import Cash from '../models/Cash';
+import SaleHasProduct from '../models/SaleHasProduct';
 import Salesman from '../models/Salesman';
+import Product from '../models/Product';
+import { literal } from 'sequelize';
 
 class SaleController {
   async store(req, res) {
-    const { total, id_salesman } = req.body;
+    const { total, products, id_salesman } = req.body;
+
 
     const response = await Sale.create({
       total,
       id_salesman
+    });
+
+    products.map(async id => {
+      await SaleHasProduct.create({
+        id_sale: response.getDataValue('id'),
+        id_product: parseInt(id),
+      });
+
+      await Product.update({ quantity: literal('quantity - 1') }, { where: { id } });
+    });
+
+    const transacaoAtual = await Cash.findAll({
+      order: [
+        ['id', 'DESC']
+      ]
+    });
+
+    var valorAtual = (transacaoAtual.length > 0) ? transacaoAtual[0].total : 0;
+
+    valorAtual = parseFloat(valorAtual) + parseFloat(total);
+
+    await Cash.create({
+      method: 'add',
+      value: total,
+      total: valorAtual,
     });
 
     return res.status(200).json({

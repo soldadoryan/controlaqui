@@ -2,7 +2,7 @@ import React from 'react';
 
 import { WrapCustomSelect, LabelCustomSelect, CustomSelect } from './styles';
 
-export default function CInput({ label, val, change, required, items, islabel }) {
+export default function CInput({ label, val, change, required, items, indexLabel, indexValue }) {
   return (
     <WrapCustomSelect>
       <LabelCustomSelect>{label}</LabelCustomSelect>
@@ -10,7 +10,7 @@ export default function CInput({ label, val, change, required, items, islabel })
         <option value=''>----------------</option>
         <option disabled></option>
         {items.map(op => (
-          <option value={islabel === true ? op.label : op.id}>{op.name}</option>
+          <option value={op[indexValue]}>{op[indexLabel]}</option>
         ))}
       </CustomSelect>
     </WrapCustomSelect>

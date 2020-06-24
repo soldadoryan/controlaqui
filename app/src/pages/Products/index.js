@@ -31,7 +31,7 @@ export default function Products() {
 
         <Painel className="painelproduct">
           <CTable
-            titles={['#', 'Descrição', 'Quantidade', 'Valor único', 'Fornecedor']}
+            titles={['#', 'Descrição', 'Valor único', 'Quantidade', 'Fornecedor']}
             values={products}
             indexes={['id', 'description', 'quantity', 'unity_value', 'provider.name']}
             indexesSearch={['description', 'provider.name']}

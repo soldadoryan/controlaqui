@@ -67,7 +67,7 @@ export default function Form({ item, success, close }) {
       <CInput val={description} required={true} change={e => setDescription(e)} type='text' label='Descrição' />
       <CInput val={unityValue} required={true} change={e => setUnityValue(e)} type='text' label='Valor único' />
       <CInput val={quantity} required={true} change={e => setQuantity(e)} type='number' label='Quantidade' />
-      <CSelect label='Fornecedor' val={idProvider} change={e => setidProvider(e)} required={true} items={providers} />
+      <CSelect label='Fornecedor' indexValue='id' indexLabel='name' val={idProvider} change={e => setidProvider(e)} required={true} items={providers} />
       <CButton title='Salvar' cstyle='primary small' />
     </WrapForm>
   );

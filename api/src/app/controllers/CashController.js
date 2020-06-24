@@ -2,9 +2,7 @@ import Cash from '../models/Cash';
 
 class CashController {
   async store(req, res) {
-    const { method, value} = req.body;
-
-    console.log(method);
+    const { method, value } = req.body;
 
     const transacaoAtual = await Cash.findAll({
       order: [
@@ -14,7 +12,7 @@ class CashController {
 
     var valorAtual = (transacaoAtual.length > 0) ? transacaoAtual[0].total : 0;
 
-    if(method === 'add') {
+    if (method === 'add') {
       valorAtual = parseFloat(valorAtual) + parseFloat(value);
     } else {
       valorAtual = parseFloat(valorAtual) - parseFloat(value);
@@ -53,11 +51,11 @@ class CashController {
   async update(req, res) {
     const { id } = req.params;
     const { method, value, total, id_sales } = req.body;
-    
+
     const cash = await Cash.findByPk(id);
 
     const response = await cash.update({
-      method, 
+      method,
       value,
       total,
       id_sales

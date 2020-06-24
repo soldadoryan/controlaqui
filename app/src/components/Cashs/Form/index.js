@@ -48,7 +48,7 @@ export default function Form({ item, success, close }) {
   return (
     <WrapForm onSubmit={submitForm}>
       <h2>{`${(item.id) ? 'Edição' : 'Cadastro'} de transação`}</h2>
-      <CSelect label='Transação' val={method} change={e => { setMethod(e); console.log(e) }} required={true} items={[
+      <CSelect label='Transação' indexValue='id' indexLabel='name' val={method} change={e => { setMethod(e); console.log(e) }} required={true} items={[
         {
           id: 'add',
           name: 'Creditar'
@@ -59,7 +59,7 @@ export default function Form({ item, success, close }) {
         },
       ]} />
       <CInput val={value} required={true} change={e => setValue(e)} type='number' label='Valor' />
-      
+
       <CButton title='Salvar' cstyle='primary small' />
     </WrapForm>
   );
