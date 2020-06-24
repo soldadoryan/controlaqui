@@ -2,11 +2,12 @@ import Salesman from '../models/Salesman';
 
 class SalesmanController {
   async store(req, res) {
-    const { name, cpf} = req.body;
+    const { name, cpf,password} = req.body;
 
     const response = await Salesman.create({
       name,
-      cpf
+      cpf,
+      password
     });
 
     return res.status(200).json({
@@ -25,13 +26,14 @@ class SalesmanController {
 
   async update(req, res) {
     const { id } = req.params;
-    const { name, cpf } = req.body;
+    const { name, cpf,password } = req.body;
 
     const salesman = await Salesman.findByPk(id);
 
     const response = await salesman.update({
       name,
-      cpf
+      cpf,
+      password
     });
 
     return res.status(200).json({

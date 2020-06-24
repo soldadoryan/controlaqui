@@ -9,33 +9,34 @@ import {
   IoIosPeople
 } from 'react-icons/io';
 
+import { RiHandCoinLine, RiBarcodeBoxLine, RiProductHuntLine, RiUser3Line, RiRefund2Line } from "react-icons/ri";
 export default function CMenu({ history }) {
 
   return (
     <>
       <Menu>
         <Button to='/providers'>
-          <IoIosAirplane />
+          <RiHandCoinLine />
           <span>Fornecedores</span>
         </Button>
 
         <Button to='/products'>
-          <IoIosBasket />
+          <RiProductHuntLine />
           <span>Produtos</span>
         </Button>
 
         <Button to='/salesmans'>
-          <IoIosPeople />
+          <RiUser3Line />
           <span>Vendedores</span>
         </Button>
 
         <Button to='/sales'>
-          <IoIosBasket />
+          <RiBarcodeBoxLine />
           <span>Vendas</span>
         </Button>
 
         <Button to='/cashs'>
-          <IoIosBasket />
+          <RiRefund2Line />
           <span>Controle de caixa</span>
         </Button>
       </Menu >

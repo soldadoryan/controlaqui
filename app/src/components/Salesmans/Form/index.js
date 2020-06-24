@@ -11,11 +11,12 @@ export default function Form({ item, success, close }) {
 
   const [name, setName] = useState('');
   const [cpf, setCpf] = useState('');
-
+  const [password, setPassword] = useState('');
 
   useEffect(() => {
     setName(item.name);
     setCpf(item.cpf);
+    setPassword(item.password);
   }, [item]);
 
   const submitForm = async e => {
@@ -27,11 +28,13 @@ export default function Form({ item, success, close }) {
       response = (await api.put(`/salesmans/${item.id}`, {
         name,
         cpf,
+        password,
       })).data;
     } else {
       response = (await api.post('/salesmans', {
         name,
         cpf,
+        password,
       })).data;
     }
 
@@ -49,6 +52,7 @@ export default function Form({ item, success, close }) {
       <h2>{`${(item.id) ? 'Edição' : 'Cadastro'} de vendedor`}</h2>
       <CInput val={name} required={true} change={e => setName(e)} type='text' label='Nome' />
       <CInput val={cpf} required={true} change={e => setCpf(e)} type='text' label='CPF' />
+      <CInput val={password} required={true} change={e => setPassword(e)} type='password' label='Senha' />
       <CButton title='Salvar' cstyle='primary small' />
     </WrapForm>
   );

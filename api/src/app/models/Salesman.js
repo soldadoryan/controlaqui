@@ -6,6 +6,7 @@ class Salesman extends Model {
       {
         name: Sequelize.STRING,
         cpf: Sequelize.STRING,
+        password: Sequelize.STRING
       },
       {
         sequelize,
