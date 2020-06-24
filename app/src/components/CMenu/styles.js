@@ -33,3 +33,26 @@ export const Button = styled(Link)`
     font-size: 14px;
   }
 `;
+
+export const ButtonLogout = styled.button`
+  background-color: transparent;
+  border: 0;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  cursor: pointer;
+  margin-bottom: 25px;
+  width: 100%;
+  text-decoration: none;
+  color: ${colors.texts};
+
+  svg {
+    font-size: 25px;
+    margin-right: 10px;
+    color: ${colors.secondary};
+  }
+
+  span {
+    font-size: 14px;
+  }
+`;

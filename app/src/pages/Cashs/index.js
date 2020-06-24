@@ -15,9 +15,8 @@ export default function Cashs() {
 
   useEffect(() => {
     getCashs();
-    getTotal();
   }, []);
-  
+
   const getTotal = async () => {
     const response = (await api.get('/cashs/total')).data;
 
@@ -34,6 +33,7 @@ export default function Cashs() {
     });
 
     setCashs(response);
+    getTotal();
   };
 
   return (

@@ -2,7 +2,7 @@ import Salesman from '../models/Salesman';
 
 class SalesmanController {
   async store(req, res) {
-    const { name, cpf,password} = req.body;
+    const { name, cpf, password } = req.body;
 
     const response = await Salesman.create({
       name,
@@ -24,9 +24,26 @@ class SalesmanController {
     return res.status(200).json(response);
   }
 
+  async login(req, res) {
+    const { cpf, password } = req.body;
+
+    const salesman = await Salesman.findOne({
+      attributes: ['name', 'cpf'],
+      where: {
+        cpf,
+        password
+      }
+    });
+    if (salesman) {
+      return res.json({ success: true, salesman })
+    } else {
+      return res.json({ success: false })
+    }
+  }
+
   async update(req, res) {
     const { id } = req.params;
-    const { name, cpf,password } = req.body;
+    const { name, cpf, password } = req.body;
 
     const salesman = await Salesman.findByPk(id);
 

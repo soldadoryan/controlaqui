@@ -20,6 +20,7 @@ routes.post('/products', ProductController.store);
 routes.put('/products/:id', ProductController.update);
 routes.delete('/products/:id', ProductController.destroy);
 
+routes.post('/login', SalesmanController.login);
 routes.get('/salesmans', SalesmanController.index);
 routes.post('/salesmans', SalesmanController.store);
 routes.put('/salesmans/:id', SalesmanController.update);
