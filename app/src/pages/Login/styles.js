@@ -1,6 +1,9 @@
 import styled from 'styled-components';
 
 import colors from '../../presets/colors';
+import effects from '../../presets/effects';
+
+import bg from '../../assets/bg.jpg';
 
 export const Container = styled.div`
   width: 100%;
@@ -9,38 +12,52 @@ export const Container = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: rgba(0, 0, 0, 0.1);
+  background: url(${bg});
+  background-position: center;
+  background-size: cover;
 
   form {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 40px 20px;
-    background-color: white;
-    border: 1px solid #f1f1f1;
-    border-radius: 10px;
-    width: 30%;
+    height: 50%;
+    background-color: rgba(0, 0, 0, 0.8);
+    border-top: 3px solid ${colors.secondary};
+    border-radius: 5px;
+    width: 20%;
+
+    h1 {
+      color: white;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+
+      span { color: ${colors.secondary} }
+    }
 
     input {
-      width: 60%;
+      width: 80%;
       height: 50px;
-      border: 1px solid #e0e0e0;
-      border-radius: 10px;
       padding: 0 10px;
       margin: 25px 0 0;
+      background-color: transparent;
+      border: 0;
+      border-bottom: 2px solid ${colors.secondary};
+      color: white;
+      font-size: 18px;
     }
 
     button {
       width: 60%;
-      margin-top: 25px;
+      margin-top: 50px;
       padding: 10px 0;
       font-size: 18px;
       color: white;
-      background-color: ${colors.primary};
-      border: 0;
+      background-color: ${colors.secondary};
       border-radius: 10px;
       text-transform: uppercase;
+      border: 0;
+      box-shadow: ${effects.boxshadow};
     }
 
   }

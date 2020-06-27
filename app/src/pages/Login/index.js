@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
+import InputMask from 'react-input-mask';
 import api from '../../services/api';
 import { sessionSet, isLogged } from '../../session';
+import { toast } from 'react-toastify';
 
 import { Container } from './styles';
 
@@ -15,22 +17,28 @@ function Login() {
   const login = async e => {
     e.preventDefault();
 
-    const response = (await api.post('/login', { cpf, password: senha })).data;
+    if (!cpf.includes('_') && senha !== '') {
 
-    if (response.success) {
-      window.location = '/home';
+      const response = (await api.post('/login', { cpf, password: senha })).data;
 
-      sessionSet(response.salesman);
+      if (response.success) {
+        window.location = '/home';
+
+        sessionSet(response.salesman);
+
+      } else {
+        toast.error("CPF e/ou senha não cadastrados no sistema!");
+      }
     } else {
-      alert("CPF e/ou senha não cadastrados no sistema!");
+      toast.error("Os campos não podem estar vazios!");
     }
   };
 
   return (
     <Container>
       <form onSubmit={login}>
-        <h1>ControlAqui</h1>
-        <input type="text" value={cpf} onChange={e => setCpf(e.target.value)} placeholder="CPF" />
+        <h1>Control<span>Aqui</span></h1>
+        <InputMask mask="999.999.999-99" value={cpf} onChange={e => setCpf(e.target.value)} placeholder="CPF" />;
         <input type="password" value={senha} onChange={e => setSenha(e.target.value)} placeholder="Senha" />
         <button type="submit">Entrar</button>
       </form>

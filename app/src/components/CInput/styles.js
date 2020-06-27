@@ -17,6 +17,18 @@ export const WrapCustomInput = styled.div`
       color: ${colors.secondary};
     }
   }
+
+  input {
+    background-color: transparent;
+    border: 0;
+    width: 100%;
+    height: 100%;
+    padding: 0 10px;
+    font-size: .8rem;
+    outline: none;
+    font-weight: 500;
+    color: #444;
+  }
 `;
 
 export const LabelCustomInput = styled.label`
@@ -30,17 +42,4 @@ export const LabelCustomInput = styled.label`
   color: rgba(0, 0, 0, 0.5);
   transition: color .5s;
 `;
-
-export const CustomInput = styled.input`
-  background-color: transparent;
-  border: 0;
-  width: 100%;
-  height: 100%;
-  padding: 0 10px;
-  font-size: .8rem;
-  outline: none;
-  font-weight: 500;
-  color: #444;
-`;
-
 

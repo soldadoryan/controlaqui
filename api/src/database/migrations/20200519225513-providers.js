@@ -14,11 +14,11 @@ module.exports = {
         allowNull: false,
       },
       cnpj: {
-        type: Sequelize.STRING(14),
+        type: Sequelize.STRING(18),
         allowNull: false,
       },
       phone: {
-        type: Sequelize.STRING(18),
+        type: Sequelize.STRING(15),
         allowNull: false,
       },
       address: {

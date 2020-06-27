@@ -57,8 +57,8 @@ export default function Form({ item, success, close }) {
     <WrapForm onSubmit={submitForm}>
       <h2>{`${(item.id) ? 'Edição' : 'Cadastro'} de fornecedor`}</h2>
       <CInput val={name} required={true} change={e => setName(e)} type='text' label='Nome' />
-      <CInput val={cnpj} required={true} change={e => setCnpj(e)} type='text' label='CNPJ' />
-      <CInput val={phone} required={true} change={e => setPhone(e)} type='text' label='Telefone' />
+      <CInput val={cnpj} required={true} change={e => setCnpj(e)} type='text' label='CNPJ' mask='99.999.999.9999-99' />
+      <CInput val={phone} required={true} change={e => setPhone(e)} type='text' label='Telefone' mask='(99) 99999-9999' />
       <CInput val={address} required={true} change={e => setAddress(e)} type='text' label='Endereço' />
       <CButton title='Salvar' cstyle='primary small' />
     </WrapForm>

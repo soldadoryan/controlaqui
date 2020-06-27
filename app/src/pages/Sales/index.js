@@ -38,6 +38,7 @@ export default function Sales() {
             load={getSales}
             FormCustom={FormSales}
             actionDelete='/sales'
+            isEditable={false}
           />
         </Painel>
 

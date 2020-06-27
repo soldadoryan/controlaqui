@@ -10,7 +10,7 @@ import CModal from '../CModal';
 import ConfirmForm from '../ConfirmForm';
 import CCheckbox from '../CCheckbox';
 
-export default function CTable({ titles, values, indexes, indexesSearch, FormCustom, actionDelete, load }) {
+export default function CTable({ titles, values, indexes, indexesSearch, FormCustom, actionDelete, load, isEditable = true }) {
   const [search, setSearch] = useState('');
   const [showModal, setShowModal] = useState('');
   const [selectedItems, setSelectedItems] = useState([]);
@@ -109,7 +109,9 @@ export default function CTable({ titles, values, indexes, indexesSearch, FormCus
               </td>
               {Object.keys(value).filter((v) => indexes.includes(v)).map(el => <td key={value[el]}>{value[el]}</td>)}
               <td className='actionstable'>
-                <CButton click={() => { setItem(value); setShowModal('add'); }} cstyle="default small" title={(<><MdEdit /> Editar</>)} />
+                {isEditable && (
+                  <CButton click={() => { setItem(value); setShowModal('add'); }} cstyle="default small" title={(<><MdEdit /> Editar</>)} />
+                )}
               </td>
             </tr>
           ))}

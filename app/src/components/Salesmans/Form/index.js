@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import api from '../../../services/api';
 import { toast } from 'react-toastify';
+import InputMask from 'react-input-mask';
 
 import { WrapForm } from './styles';
 
@@ -51,7 +52,7 @@ export default function Form({ item, success, close }) {
     <WrapForm onSubmit={submitForm}>
       <h2>{`${(item.id) ? 'Edição' : 'Cadastro'} de vendedor`}</h2>
       <CInput val={name} required={true} change={e => setName(e)} type='text' label='Nome' />
-      <CInput val={cpf} required={true} change={e => setCpf(e)} type='text' label='CPF' />
+      <CInput val={cpf} required={true} change={e => setCpf(e)} type='text' label='CPF' mask="999.999.999-99" />
       <CInput val={password} required={true} change={e => setPassword(e)} type='password' label='Senha' />
       <CButton title='Salvar' cstyle='primary small' />
     </WrapForm>
